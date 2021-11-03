@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.MapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/barrier2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="FragmentTagUsage" />
+
+    <TextView
+        android:id="@+id/text_distance"
+        style="@style/DurationDistanceStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/distance"
+        app:layout_constraintBottom_toTopOf="@+id/text_distance_label"
+        app:layout_constraintEnd_toEndOf="@+id/text_distance_label"
+        app:layout_constraintStart_toStartOf="@+id/text_distance_label"
+        app:layout_constraintTop_toBottomOf="@+id/map" />
+
+    <TextView
+        android:id="@+id/text_duration"
+        style="@style/DurationDistanceStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="2dp"
+        android:text="@string/duration"
+        app:layout_constraintBottom_toTopOf="@+id/text_duration_label"
+        app:layout_constraintEnd_toEndOf="@+id/text_duration_label"
+        app:layout_constraintStart_toStartOf="@+id/text_duration_label"
+        app:layout_constraintTop_toBottomOf="@+id/map" />
+
+    <TextView
+        android:id="@+id/text_distance_label"
+        style="@style/DurationDistanceLabelStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/distance_label"
+        app:layout_constraintBottom_toTopOf="@+id/start_pause_button"
+        app:layout_constraintEnd_toStartOf="@+id/text_duration_label"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_distance" />
+
+    <TextView
+        android:id="@+id/text_duration_label"
+        style="@style/DurationDistanceLabelStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/duration_label"
+        android:textColor="#AFACAC"
+        app:layout_constraintBottom_toTopOf="@+id/start_pause_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/text_distance_label"
+        app:layout_constraintTop_toBottomOf="@+id/text_duration" />
+
+    <ToggleButton
+        android:id="@+id/start_pause_button"
+        style="@style/ToggleButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/text_service_info"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/text_service_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text=""
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="top"
+        app:constraint_referenced_ids="text_distance,start_pause_button,text_duration_label,text_duration,text_distance_label"
+        tools:layout_editor_absoluteY="601dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
